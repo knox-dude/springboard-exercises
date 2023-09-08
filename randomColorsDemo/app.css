@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 10rem;
+    font-family: Arial, Helvetica, sans-serifs;
+}
+
+.letter {
+    transition: color 500ms;
+}
