@@ -42,9 +42,12 @@ let shuffledColors = shuffle(COLORS);
 // it creates a new div and gives it a class with the value of the color
 // it also adds an event listener for a click for each card
 function createDivsForColors(colorArray) {
+  idCounter = 0
   for (let color of colorArray) {
     // create a new div
     const newDiv = document.createElement("div");
+    newDiv.id = idCounter;
+    idCounter++;
 
     // give it a class attribute for the value we are looping over
     newDiv.classList.add(color);
@@ -58,13 +61,37 @@ function createDivsForColors(colorArray) {
 }
 
 // TODO: Implement this function!
+let clickedCards = [];
+
 function handleCardClick(event) {
-  // you can use event.target to see which element was clicked
-  console.log("you just clicked", event.target);
+  // Set the background color
   event.target.style.backgroundColor = event.target.className;
-  console.log(event);
-  event.target.dataset.clicked = 'true';
-  console.log(event.target.dataset);
+
+  if (clickedCards.length != 0 && clickedCards[0].id == event.target.id) {
+    return; // Ignore event if user clicks the same card
+  }
+  if (event.target.dataset.clicked == 'true') {
+    return; // Ignore event if user clicks an already matched card
+  }
+  clickedCards.push(event.target); // Add to array for processing
+  if (clickedCards.length == 2) {
+    let cardsToFlip = clickedCards.slice(); // copy array so the contents don't disappear
+    clickedCards = [];
+    if (cardsToFlip[0].className != cardsToFlip[1].className) {
+      setTimeout(function() {
+        for (card of cardsToFlip) {
+          if (!card.dataset.clicked) {
+            card.style.backgroundColor = "white";
+          }
+        }
+      }, 1000)
+    } else {
+      for (card of cardsToFlip) {
+        card.dataset.clicked = 'true';
+      }
+    }
+  }
+  // clickedCards.add(event.target.className);
 }
 
 // when the DOM loads
