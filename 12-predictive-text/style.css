@@ -1,46 +1,58 @@
 * {
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
 
 :focus {
- /* TODO */
+  outline:none;
+  border: 2px solid rgb(255, 140, 0);
+  border-color: rgb(255, 140, 0);
+  border-radius: 5px;
 }
 
 body {
-  /* TODO */
-}
-
-input {
- /* TODO */
+  background: linear-gradient(to right, rgb(255, 238, 0), rgb(255, 140, 0));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .search-container {
- /* TODO */
+   width:200px;
 }
-.search-container input,
-.search-container .suggestions {
-  /* TODO */
-}
+
 .search-container input {
- /* TODO */
+  background: linear-gradient(to right, rgb(255, 220, 0), rgb(255, 190, 0));
+  border: none;
+  border-bottom: 2px solid  rgb(255, 140, 0);
+  height: 2rem;
+  border-radius: 5px;
 }
 .search-container .suggestions {
-   /* TODO */
+  position:absolute;
+  background: linear-gradient(to right, rgb(255, 220, 0), rgb(255, 190, 0));
+  border: 1px solid rgb(255, 220, 0);
+  max-height: 150px;
+  overflow-y: auto;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+  width:inherit;
+  border-radius: 5px;
+}
+
+.suggestions::-webkit-scrollbar {
+  width: 0;
 }
 
 ul {
-  /* TODO */
-}
-ul.has-suggestions {
-  /* TODO */
+  list-style:none;
+  padding:0;
+  margin:0;
 }
 ul li {
-  /* TODO */
+  padding:10px;
+  cursor:pointer;
+  transition: background-color 0.2s;
 }
 ul li:hover {
-  /* TODO */
-}
-
-input {
-   /* TODO */
+  background-color: rgb(255, 80, 0);
 }
