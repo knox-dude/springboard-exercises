@@ -3,7 +3,13 @@ const suggestions = document.querySelector('.suggestions ul');
 
 const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackberry', 'Blackcurrant', 'Blueberry', 'Boysenberry', 'Currant', 'Cherry', 'Coconut', 'Cranberry', 'Cucumber', 'Custard apple', 'Damson', 'Date', 'Dragonfruit', 'Durian', 'Elderberry', 'Feijoa', 'Fig', 'Gooseberry', 'Grape', 'Raisin', 'Grapefruit', 'Guava', 'Honeyberry', 'Huckleberry', 'Jabuticaba', 'Jackfruit', 'Jambul', 'Juniper berry', 'Kiwifruit', 'Kumquat', 'Lemon', 'Lime', 'Loquat', 'Longan', 'Lychee', 'Mango', 'Mangosteen', 'Marionberry', 'Melon', 'Cantaloupe', 'Honeydew', 'Watermelon', 'Miracle fruit', 'Mulberry', 'Nectarine', 'Nance', 'Olive', 'Orange', 'Clementine', 'Mandarine', 'Tangerine', 'Papaya', 'Passionfruit', 'Peach', 'Pear', 'Persimmon', 'Plantain', 'Plum', 'Pineapple', 'Pomegranate', 'Pomelo', 'Quince', 'Raspberry', 'Salmonberry', 'Rambutan', 'Redcurrant', 'Salak', 'Satsuma', 'Soursop', 'Star fruit', 'Strawberry', 'Tamarillo', 'Tamarind', 'Yuzu'];
 
-// get entries in fruit that have str as a substring
+
+/**
+ * Get entries in fruit that have str as a substring
+ * 
+ * @param {string} str - takes userInput from searchHandler
+ * @returns {Array} a matching entries in fruits
+ */
 function search(str) {
 	if (str === '') return [];
 	let results = [];
@@ -11,18 +17,23 @@ function search(str) {
 	return results;
 }
 
-// Function that displays search results on keyup event
+/**
+ * Function that displays search results on keyup event
+ * 
+ * @param {Event} e - keyup event
+ */
 function searchHandler(e) {
 	const userInput = e.target.value.toLowerCase();
-	const fruitRemaining = search(userInput); 	// filter from list fruit
-	suggestions.innerHTML = ''; 								// clear outdated list from last search
-	showSuggestions(fruitRemaining, userInput); // show suggestions for current search
+	const fruitRemaining = search(userInput); 		// filter from list fruit
+	suggestions.innerHTML = ''; 					// clear outdated list from last search
+	showSuggestions(fruitRemaining, userInput); 	// show suggestions for current search
 }
 
 /**
- * Populates suggestions with bolded text search results.
- * @param {Array} results - list of entries in fruit that have inputVal as a substring.
- * @param {string} inputVal - lowercased input from the search bar.
+ * Populates suggestions with modified output from search
+ * 
+ * @param {Array} results - output from search() that matches user's input
+ * @param {string} inputVal - user's input from the search bar.
  */
 function showSuggestions(results, inputVal) {
 	for (let result of results) {
@@ -53,7 +64,11 @@ function boldSubstring(str, subStr) {
 	return strArray.join('')
 }
 
-// highlights the list item the user is hovering over, also removes highlight when user removes hover
+/**
+ * Highlights the list item the user is hovering over,
+ * also removes highlight when user removes hover
+ * @param {MouseEvent} e 
+ */
 function highlightItem(e) {
 	if (e.type === 'mouseover') {
 		e.target.classList.add('highlighted');
@@ -63,7 +78,11 @@ function highlightItem(e) {
 	}
 }
 
-// populates input with clicked element's inner text
+/**
+ * populates input with clicked element's inner text
+ * 
+ * @param {Event} e 
+ */
 function useSuggestion(e) {
 	suggestions.innerHTML = '';
 	if (e.target.tagName === 'LI') { 	// if user clicks on non-bolded text
