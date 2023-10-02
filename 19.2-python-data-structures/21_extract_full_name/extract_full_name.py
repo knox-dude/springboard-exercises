@@ -14,3 +14,7 @@ def extract_full_names(people):
         >>> extract_full_names(names)
         ['Ada Lovelace', 'Grace Hopper']
     """
+    list_of_names = []
+    for ppl_dict in people:
+        list_of_names.append(ppl_dict["first"]+" "+ppl_dict["last"])
+    return list_of_names
