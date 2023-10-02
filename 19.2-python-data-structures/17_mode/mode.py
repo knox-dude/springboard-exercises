@@ -11,3 +11,10 @@ def mode(nums):
         >>> mode([2, 2, 3, 3, 2])
         2
     """
+    countDict = {}
+    for num in nums:
+        countDict[num] = countDict.get(num, 0) + 1
+    most_common_count = max(countDict.values())
+    for (key, val) in countDict.items():
+        if val == most_common_count:
+            return key
