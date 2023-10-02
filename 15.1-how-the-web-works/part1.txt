@@ -1,0 +1,40 @@
+In your own terms, define the following terms:
+
+- What is HTTP?
+
+Hypertext transfer protocol; it allows us to get files from other computers over the world wide web
+
+- What is a URL?
+
+The address of a given resource on the web
+
+- What is DNS?
+
+A way for computers to look up other computers and get their data (DNS -> IP -> ??? -> profit)
+
+- What is a query string?
+
+Some additional data that you want from the webpage. Like language or search results or something like that.
+
+- What are two HTTP verbs and how are they different?
+
+GET: ask for resource, no change on the server
+POST: ask for resource, change on the server
+
+- What is an HTTP request?
+
+Asking for some resource using HTTP 
+
+- What is an HTTP response?
+
+Some code that lets you know what happened: you have it, it's not found, already cached, etc.
+
+- What is an HTTP header? Give a couple examples of request and response headers you have seen.
+
+It's like an argument that modifies your request. It holds data.
+q=q_means_search
+
+- What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+
+You are issuing a GET request to that web page. It returns (hopefully with a 200 status) and then requests
+all the other resources it needs. At the start, the URL is turned into an IP address using DNS. 
