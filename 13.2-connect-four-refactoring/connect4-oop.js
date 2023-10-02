@@ -11,13 +11,12 @@ class Player {
   }
 }
 
-
 class Game {
   constructor(p1, p2, width=7, height=6) {
     this.width = width;
     this.height = height;
     this.players = [p1, p2];
-    this.currPlayer = 1;
+    this.currPlayer = p1;
     this.gameOver = false;
     this.makeBoard();
     this.makeHtmlBoard();
@@ -82,7 +81,7 @@ class Game {
   placeInTable(y, x) {
     const piece = document.createElement('div');
     piece.classList.add('piece');
-    piece.classList.add(`p${this.currPlayer}`);
+    piece.style.backgroundColor = this.currPlayer.color;
     piece.style.top = -50 * (y + 2);
 
     const spot = document.getElementById(`${y}-${x}`);
@@ -98,7 +97,7 @@ class Game {
   /** handleClick: handle click of column top to play piece */
   handleClick(evt) {
     //if game over, don't allow clicks
-    if (this. gameOver) return;
+    if (this.gameOver) return;
 
     // get x from ID of clicked cell
     const x = +evt.target.id;
@@ -115,21 +114,23 @@ class Game {
     
     // check for win
     if (this.checkForWin()) {
-      return endGame(`Player ${this.currPlayer} won!`);
+      this.gameOver = true;
+      return this.endGame(`Player ${this.currPlayer.color} won!`);
     }
     
     // check for tie
     if (this.board.every(row => row.every(cell => cell))) {
-      return endGame('Tie!');
+      this.gameOver = true;
+      return this.endGame('Tie!');
     }
       
     // switch players
-    this.currPlayer = this.currPlayer === 1 ? 2 : 1;
+    this.currPlayer = this.currPlayer === this.players[0] ? this.players[1] : this.players[0];
   }
 
   /** checkForWin: check board cell-by-cell for "does a win start here?" */
   checkForWin() {
-    const _win = cells => {
+    const _win = cells => 
       // Check four cells to see if they're all color of current player
       //  - cells: list of four (y, x) cells
       //  - returns true if all are legal coordinates & all match currPlayer
@@ -141,7 +142,6 @@ class Game {
           x < this.width &&
           this.board[y][x] === this.currPlayer
       );
-    }
 
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
@@ -161,6 +161,10 @@ class Game {
   }
 }
 
-new Game(new Player('green'), new Player('yellow'))
+document.getElementById('start').addEventListener('click', () => {
+  let p1 = new Player(document.getElementById('p1').value);
+  let p2 = new Player(document.getElementById('p2').value);
+  new Game(p1, p2);
+});
 
 
