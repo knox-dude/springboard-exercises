@@ -15,6 +15,10 @@ def read_file_list(filename):
 
     It will raise an error if the file cannot be found.
     """
+    filename = "fs_5_read_file_list/" + filename
+    with open(filename, "r") as f:
+        for line in f:
+            print("- "+line.strip())
 
     # hint: when you read lines of files, there will be a "newline"
     # (end-of-line character) at the end of each line, and you want to

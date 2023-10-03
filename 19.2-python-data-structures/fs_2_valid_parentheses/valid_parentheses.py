@@ -22,3 +22,13 @@ def valid_parentheses(parens):
         >>> valid_parentheses(")()(")
         False
     """
+    stack = []
+    for paren in parens:
+        if paren == ")":
+            if len(stack) == 0:
+                return False
+            stack.pop()
+        else:
+            stack.append(paren)
+    return True if len(stack) == 0 else False
+            

@@ -18,3 +18,5 @@ def sum_up_diagonals(matrix):
         >>> sum_up_diagonals(m2)
         30
     """
+    # Yeah this is gross and not readable, if it was a real project I'd make it more readable
+    return sum(matrix[i][len(matrix)-1-i] for i in range(len(matrix))) + sum(matrix[i][i] for i in range(len(matrix)))
