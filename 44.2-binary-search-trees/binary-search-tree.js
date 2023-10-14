@@ -16,16 +16,25 @@ class BinarySearchTree {
 
   insert(val) {
     let current = this.root;
-    while (current.left || current.right) {
+    let newNode = new Node(val);
+    if (!current) return newNode;
+
+    while (current) {
       console.log("checking:", current);
       if (current.val < val) {
+        if (!current.left) {
+          current.left = newNode;
+          return this.root;
+        }
         current = current.left;
       } else {
+        if (!current.right) {
+          current.right = newNode;
+          return this.root;
+        }
         current = current.right;
       }
     }
-    let newNode = new Node(val);
-    current.left = newNode;
     return this.root;
   }
 
