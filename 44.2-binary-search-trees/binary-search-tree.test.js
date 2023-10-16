@@ -3,6 +3,7 @@ const BinarySearchTree = require("./binary-search-tree");
 describe("insert", function() {
   it("inserts a node at the correct position", function() {
     var binarySearchTree = new BinarySearchTree();
+    // debugger;
     binarySearchTree
       .insert(15)
       .insert(20)
@@ -159,6 +160,7 @@ describe("BFS", function() {
 describe("remove", function() {
   it("remove should correctly remove a node with no children", function() {
     let binarySearchTree = new BinarySearchTree();
+    // debugger;
     binarySearchTree
       .insert(15)
       .insert(20)
