@@ -105,6 +105,47 @@ class Graph {
     }
     return bfsList;
   }
+
+  /** Finds the shortest path from source node to target using BFS */
+
+  findShortestPath(source, target) {
+    let parent = new Map();
+    let queue = [source];
+    let visited = new Set();
+    visited.add(source);
+  
+    while (queue.length !== 0) {
+      let current = queue.shift();
+  
+      if (current == target) {
+        return this._getPath(parent, current, source);
+      }
+  
+      for (let adj of current.adjacent) {
+        if (visited.has(adj)) continue;
+        queue.push(adj);
+        parent.set(adj, current);
+        visited.add(adj);
+      }
+  
+    }
+  }
+
+  /** Constructs a list of nodes from source to target */
+
+  _getPath(parent, source, target) {
+    let path = [source.value];
+    let current = parent.get(source);
+  
+    while (current != target) {
+      path.push(current.value);
+      current = parent.get(current);
+    }
+    path.push(current.value);
+  
+    return path.reverse();
+  }
+
 }
 
 module.exports = {Graph, Node}
