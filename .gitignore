@@ -401,4 +401,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 # python3 virtual environments
-/venv
+*/venv
