@@ -28,8 +28,8 @@ def show_question(number):
 def add_answer():
   """Adds answer to database (list of survey questions)"""
 
-  if len(survey_answers) == len(satisfaction_survey.questions):
-    redirect("/finished")
+  if len(survey_answers) == len(satisfaction_survey.questions)-1:
+    return redirect("/finished")
 
   answer = request.form['answer']
   survey_answers.append(answer)
