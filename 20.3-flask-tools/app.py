@@ -4,21 +4,28 @@ from surveys import satisfaction_survey
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secret"
 
-survey_answers = []
-
 @app.route("/")
-def home_page_survey():
+def landing_page():
   """Make the home page using Survey object"""
 
   return render_template("survey_start.html", survey=satisfaction_survey)
 
+@app.route("/start", methods=["POST"])
+def start_survey():
+  """Clear the responses cache"""
+
+  session["responses"] = []
+
+  return redirect("/questions/0")
+
 @app.route("/questions/<int:number>")
 def show_question(number):
   """Shows the survey question"""
+  responses = session["responses"]
 
-  if (len(survey_answers) != number):
+  if (len(responses) != number):
     flash("Invalid question number")
-    return redirect(f"/questions/{len(survey_answers)}")
+    return redirect(f"/questions/{len(responses)}")
 
   question = satisfaction_survey.questions[number]
 
@@ -27,14 +34,16 @@ def show_question(number):
 @app.route('/answer', methods=["POST"])
 def add_answer():
   """Adds answer to database (list of survey questions)"""
+  responses = session["responses"]
 
-  if len(survey_answers) == len(satisfaction_survey.questions)-1:
+  if len(responses) == len(satisfaction_survey.questions)-1:
     return redirect("/finished")
 
   answer = request.form['answer']
-  survey_answers.append(answer)
+  responses.append(answer)
+  session["responses"] = responses
   
-  return redirect(f"/questions/{len(survey_answers)}")
+  return redirect(f"/questions/{len(responses)}")
   
 
 @app.route('/finished')
