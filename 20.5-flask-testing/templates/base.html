@@ -10,5 +10,11 @@
     <h3>{{msg}}</h3>
   {% endfor %}
   {% block content %}{% endblock %}
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/static/boggle.js"></script>
+  <script>
+    let game = new Boggle("boggle", 60);
+  </script>
 </body>
 </html>

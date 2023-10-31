@@ -3,13 +3,25 @@
 {% block title %} Board {% endblock %}
 
 {% block content%}
-<table>
-  {% for row in board %}
-  <tr>
-    {% for letter in row %}
-      <td>{{letter}}</td>
+<section id="boggle">
+
+  <table class="board">
+    {% for row in board %}
+    <tr>
+      {% for letter in row %}
+        <td>{{letter}}</td>
+      {% endfor %}
+    </tr>
     {% endfor %}
-  </tr>
-  {% endfor %}
-</table>
+  </table>
+  
+  <form method="POST" class="guess-form">
+    <h2>Your Guess:</h2>
+    <input name="guess" class="guess">
+    <button>Guess!</button>
+  </form>
+  
+  <p class="msg"></p>
+  
+</section>
 {% endblock %}
