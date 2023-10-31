@@ -26,6 +26,7 @@ class Boggle {
 
     const $guess = $(".guess", this.board);
     let guess = $guess.val().toLowerCase();
+    $(".guess", this.board).val("")
 
     const response = await axios.get("/check-guess", {params: {guess:guess}})
     const text_of_response = response.data.result
@@ -95,17 +96,34 @@ class Boggle {
     }
   }
 
+  /** Updates frontend with new high score and nplays */
+  update_plays_highscore(nplays, highscore=-1) {
+    if (!highscore == -1) {
+      $(".highscore", this.board).text(`${highscore}`);
+    }
+    $(".nplays", this.board).text(`${nplays}`);
+  }
+
   /**
-   * Sends a post request with user's high score
+   * Sends a post request with user's high score then updates the frontend
    */
   async post_score() {
+
     $(".guess-form", this.board).hide();
+
     const response = await axios.post("/post-score", {score:this.score});
     console.log(response.data);
-    if (response.data) {
+    console.log(response.data.nplays);
+
+    if (response.data.newRecord) {
       $(".msg", this.board).text(`New high score: ${this.score}`)
-    } else {
+
+      this.update_plays_highscore(response.data.nplays, this.score)
+    }
+    else {
       $(".msg", this.board).text(`Final score: ${this.score}`)
+
+      this.update_plays_highscore(response.data.nplays)
     }
   }
 }

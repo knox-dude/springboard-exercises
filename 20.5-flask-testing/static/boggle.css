@@ -1,0 +1,27 @@
+.container {
+  text-align: center;
+}
+section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+td {
+  padding:0px 15px;
+  font-size: 3rem;
+  border: 1px solid black;
+}
+
+.board {
+  font-family: monospace;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+

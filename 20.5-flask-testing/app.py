@@ -9,6 +9,7 @@ boggle_game = Boggle()
 
 @app.route("/")
 def landing_page():
+  """Shows the landing page with board loaded in"""
   board = boggle_game.make_board()
   session["board"] = board
   score = session.get("highscore", 0)
@@ -37,4 +38,4 @@ def post_score():
   newRecord = True if score > highscore else False
 
   session['highscore'] = max(score, highscore)
-  return jsonify(newRecord)
+  return jsonify({"newRecord":newRecord, "nplays":nplays+1})

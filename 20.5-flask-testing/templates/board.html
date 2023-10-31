@@ -1,34 +1,39 @@
 {% extends 'base.html' %}
 
-{% block title %} Board {% endblock %}
+{% block title %} Boggle {% endblock %}
 
 {% block content%}
 <section id="boggle">
-
-  <table class="board">
-    {% for row in board %}
-    <tr>
-      {% for letter in row %}
-        <td>{{letter}}</td>
+  <div class="board-container">
+    <table class="board">
+      {% for row in board %}
+      <tr>
+        {% for letter in row %}
+          <td>{{letter}}</td>
+        {% endfor %}
+      </tr>
       {% endfor %}
-    </tr>
-    {% endfor %}
-  </table>
+    </table>
+  </div>
+  <div class="container">
+    <p>High Score: <b class="highscore">{{highscore}}</b> Num Plays: <b class="nplays">{{nplays}}</b></p>
   
-  <form method="POST" class="guess-form">
-    <h3>Your Guess:</h3>
-    <input name="guess" class="guess">
-    <button>Guess!</button>
-  </form>
+    <form method="POST" class="guess-form">
+      <h3>Your Guess:</h3>
+      <input name="guess" class="guess" autofocus>
+      <button>Guess!</button>
+    </form>
+    
+    <p class="msg"></p>
 
-  <p>Time remaining: <b id="timer">60</b></p>
-  
-  <p class="msg"></p>
+    <p>Time remaining: <b id="timer">60</b></p>
 
-  <p>Your Score: <b id="score">0</b></p>
+    <p>Your Score: <b id="score">0</b></p>
 
-  <h3>Correct Guesses:</h3>
-  <ul class="correct-guesses"></ul>
+    <h3>Correct Guesses:</h3>
+    <ul class="correct-guesses"></ul>
+
+  </div>
   
 </section>
 {% endblock %}
