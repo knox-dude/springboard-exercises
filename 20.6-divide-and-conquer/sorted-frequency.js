@@ -27,6 +27,7 @@ function sortedFrequency(arr, val, left=0, right=arr.length-1) {
   if (val < arr[left] || val > arr[right]) return -1
   let high = findHigh(arr, val)
   let low = findLow(arr, val)
+  if (high == low && arr[low] != val) return -1
   return high - low + 1
 }
 
