@@ -16,7 +16,7 @@ WHERE rating >= 4.8
 ORDER BY reviews DESC
 LIMIT 1;
 -- 6. Find the average rating for each category ordered by the highest rated to lowest rated.
-SELECT category, ROUND((sum(rating) / count(rating))::numeric, 2) as avg_rating
+SELECT category, ROUND(AVG(rating)::numeric, 2) as avg_rating
 from analytics
 group by category
 order by avg_rating desc;
@@ -74,3 +74,26 @@ FROM analytics
 WHERE min_installs > 100000
 ORDER BY proportion DESC
 LIMIT 1;
+
+-- FS1. Find the name and rating of the top rated apps in each category, among apps that have been installed at least 50,000 times.
+SELECT a.app_name, a.category, b.max_rating
+FROM analytics as a
+INNER JOIN (
+  SELECT category, MAX(rating) as max_rating
+  FROM analytics
+  WHERE min_installs >= 50000
+  GROUP BY category
+) AS b ON a.category = b.category AND a.rating = b.max_rating
+ORDER BY a.category;
+-- FS2. Find all the apps that have a name similar to “facebook”.
+SELECT app_name
+FROM analytics
+WHERE app_name ILIKE '%facebook%';
+-- FS3. Find all the apps that have more than 1 genre.
+SELECT app_name, genres
+FROM analytics
+WHERE array_length(genres, 1) > 1;
+-- FS4. Find all the apps that have education as one of their genres.
+SELECT app_name, genres
+FROM analytics 
+WHERE array_position(genres, 'Education') IS NOT NULL;
