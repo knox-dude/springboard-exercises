@@ -1,0 +1,381 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": -1.3888888336994052,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": true,
+      "columnPrimaryKey": true,
+      "columnUnique": true,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "PostgreSQL",
+    "databaseName": "medical_center",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "med_center",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "INTEGER",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "432b5c33-b5c5-41e7-993f-2467639de8d5"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 136.1105,
+          "top": 124.3052,
+          "zIndex": 169,
+          "widthName": 70.64990234375,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "b93f80a4-6f45-4ad9-9171-681119f6c465"
+      },
+      {
+        "name": "doctor",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "integer",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "28c24429-071d-47ab-adef-f4c62a3d900e"
+          },
+          {
+            "name": "centerId",
+            "comment": "",
+            "dataType": "INTEGER",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "43e041ae-c44b-48d9-a82f-a1d541294b18"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 134.0275,
+          "top": 393.0537,
+          "zIndex": 194,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "f23041ba-cba5-4a3a-98f9-ac4a4d75c19f"
+      },
+      {
+        "name": "patient",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "integer",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "79a19fb1-d08a-4ed3-9ada-b3cd5b7377a7"
+          },
+          {
+            "name": "doctorId",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0228d9ab-2a3b-40ba-b554-70ab9bebba60"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 638.1943,
+          "top": 244.4442,
+          "zIndex": 200,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "75981813-eeb5-461f-8504-c79bb79731ec"
+      },
+      {
+        "name": "doctor_patient",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "integer",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "03c6a16e-86cd-49c5-9d79-61a413fca0a2"
+          },
+          {
+            "name": "doctorId",
+            "comment": "",
+            "dataType": "integer",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a23443c3-dbb3-4e32-9a59-ce5535636f18"
+          },
+          {
+            "name": "patientId",
+            "comment": "",
+            "dataType": "integer",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0682f46a-d525-4e23-afd0-300a1e02de7f"
+          }
+        ],
+        "ui": {
+          "active": true,
+          "left": 726.3887,
+          "top": 472.916,
+          "zIndex": 209,
+          "widthName": 84.392578125,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "2f4b582f-a2db-48ff-a8d6-8a2d3bec1c93"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "b93f80a4-6f45-4ad9-9171-681119f6c465",
+          "columnIds": [
+            "432b5c33-b5c5-41e7-993f-2467639de8d5"
+          ],
+          "x": 333.1105,
+          "y": 213.8052,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "f23041ba-cba5-4a3a-98f9-ac4a4d75c19f",
+          "columnIds": [
+            "43e041ae-c44b-48d9-a82f-a1d541294b18"
+          ],
+          "x": 331.02750000000003,
+          "y": 393.0537,
+          "direction": "top"
+        },
+        "constraintName": "fk_med_center_to_doctor",
+        "visible": true,
+        "id": "76f5c780-214c-48ed-ac56-598b211b79d5"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneOnly",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f23041ba-cba5-4a3a-98f9-ac4a4d75c19f",
+          "columnIds": [
+            "28c24429-071d-47ab-adef-f4c62a3d900e"
+          ],
+          "x": 528.0275,
+          "y": 448.0537,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "2f4b582f-a2db-48ff-a8d6-8a2d3bec1c93",
+          "columnIds": [
+            "a23443c3-dbb3-4e32-9a59-ce5535636f18"
+          ],
+          "x": 726.3887,
+          "y": 538.1659999999999,
+          "direction": "left"
+        },
+        "constraintName": "fk_doctor_to_doctor_patient",
+        "visible": true,
+        "id": "7f8a372c-f57c-4587-a4ed-cd5e6d757561"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneOnly",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "75981813-eeb5-461f-8504-c79bb79731ec",
+          "columnIds": [
+            "79a19fb1-d08a-4ed3-9ada-b3cd5b7377a7"
+          ],
+          "x": 835.1943,
+          "y": 354.4442,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "2f4b582f-a2db-48ff-a8d6-8a2d3bec1c93",
+          "columnIds": [
+            "0682f46a-d525-4e23-afd0-300a1e02de7f"
+          ],
+          "x": 923.3887,
+          "y": 472.916,
+          "direction": "top"
+        },
+        "constraintName": "fk_patient_to_doctor_patient",
+        "visible": true,
+        "id": "5bc47dd2-f4a5-498a-9218-62118fbb57ac"
+      }
+    ]
+  }
+}
