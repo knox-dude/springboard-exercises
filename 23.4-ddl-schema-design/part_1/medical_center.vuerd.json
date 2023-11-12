@@ -74,7 +74,7 @@
           "active": false,
           "left": 662.7777,
           "top": 235.4152,
-          "zIndex": 140,
+          "zIndex": 6,
           "widthName": 70.64990234375,
           "widthComment": 60
         },
@@ -109,7 +109,7 @@
             "id": "28c24429-071d-47ab-adef-f4c62a3d900e"
           },
           {
-            "name": "centerId",
+            "name": "center_id",
             "comment": "",
             "dataType": "INTEGER",
             "default": "",
@@ -130,13 +130,59 @@
               "widthDefault": 60
             },
             "id": "43e041ae-c44b-48d9-a82f-a1d541294b18"
+          },
+          {
+            "name": "first_name",
+            "comment": "",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 62.68994140625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fb6e5ca5-ca0d-4a44-aed8-3b0750eb33cc"
+          },
+          {
+            "name": "last_name",
+            "comment": "",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 61.97900390625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "4f22ebbc-dfb7-4abb-a626-ad8f17bfda29"
           }
         ],
         "ui": {
           "active": false,
           "left": 135.1386,
           "top": 351.943,
-          "zIndex": 136,
+          "zIndex": 63,
           "widthName": 60,
           "widthComment": 60
         },
@@ -171,9 +217,32 @@
             "id": "79a19fb1-d08a-4ed3-9ada-b3cd5b7377a7"
           },
           {
-            "name": "name",
+            "name": "first_name",
             "comment": "",
-            "dataType": "int",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 62.68994140625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0228d9ab-2a3b-40ba-b554-70ab9bebba60"
+          },
+          {
+            "name": "last_name",
+            "comment": "",
+            "dataType": "text",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -186,19 +255,19 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 60,
+              "widthName": 61.97900390625,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "0228d9ab-2a3b-40ba-b554-70ab9bebba60"
+            "id": "e8b5d002-b06f-4532-99ea-24b024aa95ac"
           }
         ],
         "ui": {
           "active": false,
           "left": 134.5001,
           "top": 867.8344,
-          "zIndex": 138,
+          "zIndex": 48,
           "widthName": 60,
           "widthComment": 60
         },
@@ -233,7 +302,7 @@
             "id": "d205d905-9e21-4750-9299-de0101bd17d3"
           },
           {
-            "name": "visitId",
+            "name": "visit_id",
             "comment": "",
             "dataType": "integer",
             "default": "",
@@ -260,7 +329,7 @@
           "active": false,
           "left": 772.3889,
           "top": 810.25,
-          "zIndex": 126,
+          "zIndex": 135,
           "widthName": 60,
           "widthComment": 60
         },
@@ -295,7 +364,7 @@
             "id": "03c6a16e-86cd-49c5-9d79-61a413fca0a2"
           },
           {
-            "name": "doctorId",
+            "name": "doctor_id",
             "comment": "",
             "dataType": "integer",
             "default": "",
@@ -318,7 +387,7 @@
             "id": "a23443c3-dbb3-4e32-9a59-ce5535636f18"
           },
           {
-            "name": "patientId",
+            "name": "patient_id",
             "comment": "",
             "dataType": "integer",
             "default": "",
@@ -339,13 +408,36 @@
               "widthDefault": 60
             },
             "id": "0682f46a-d525-4e23-afd0-300a1e02de7f"
+          },
+          {
+            "name": "visit_date",
+            "comment": "",
+            "dataType": "date",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "836238ae-98bb-4c44-b368-3e2fb980ae50"
           }
         ],
         "ui": {
           "active": false,
           "left": 135.2775,
           "top": 597.9166,
-          "zIndex": 137,
+          "zIndex": 97,
           "widthName": 60,
           "widthComment": 60
         },
@@ -380,7 +472,7 @@
             "id": "712d522d-0350-4401-976d-d7ff857f7957"
           },
           {
-            "name": "diagnosisId",
+            "name": "diagnosis_id",
             "comment": "",
             "dataType": "int",
             "default": "",
@@ -395,19 +487,42 @@
               "pk": false,
               "fk": true,
               "pfk": false,
-              "widthName": 67.76806640625,
+              "widthName": 74.2744140625,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
             "id": "582a8d09-8526-473a-8110-5fe1bba92b8a"
+          },
+          {
+            "name": "disease_name",
+            "comment": "",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 86.55712890625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "b7aa134e-d009-4bdd-881a-95d0e9a1d7cd"
           }
         ],
         "ui": {
           "active": false,
           "left": 766.4606,
           "top": 435.9643,
-          "zIndex": 135,
+          "zIndex": 130,
           "widthName": 60,
           "widthComment": 60
         },
@@ -440,8 +555,8 @@
           "columnIds": [
             "43e041ae-c44b-48d9-a82f-a1d541294b18"
           ],
-          "x": 529.1386,
-          "y": 406.943,
+          "x": 531.82854140625,
+          "y": 427.443,
           "direction": "right"
         },
         "constraintName": "fk_med_center_to_doctor",
@@ -457,8 +572,8 @@
           "columnIds": [
             "28c24429-071d-47ab-adef-f4c62a3d900e"
           ],
-          "x": 332.1386,
-          "y": 461.943,
+          "x": 333.483570703125,
+          "y": 502.943,
           "direction": "bottom"
         },
         "end": {
@@ -483,7 +598,7 @@
           "columnIds": [
             "79a19fb1-d08a-4ed3-9ada-b3cd5b7377a7"
           ],
-          "x": 331.5001,
+          "x": 332.845070703125,
           "y": 867.8344,
           "direction": "top"
         },
@@ -493,7 +608,7 @@
             "0682f46a-d525-4e23-afd0-300a1e02de7f"
           ],
           "x": 332.27750000000003,
-          "y": 728.4166,
+          "y": 748.9166,
           "direction": "bottom"
         },
         "constraintName": "fk_patient_to_doctor_patient",
@@ -502,7 +617,7 @@
       },
       {
         "identification": false,
-        "relationshipType": "OneOnly",
+        "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
           "tableId": "2f4b582f-a2db-48ff-a8d6-8a2d3bec1c93",
@@ -510,7 +625,7 @@
             "03c6a16e-86cd-49c5-9d79-61a413fca0a2"
           ],
           "x": 529.2775,
-          "y": 663.1666,
+          "y": 673.4166,
           "direction": "right"
         },
         "end": {
@@ -544,8 +659,8 @@
           "columnIds": [
             "582a8d09-8526-473a-8110-5fe1bba92b8a"
           ],
-          "x": 967.344633203125,
-          "y": 545.9643,
+          "x": 976.739164453125,
+          "y": 566.4643,
           "direction": "bottom"
         },
         "constraintName": "fk_diagnosis_to_disease",
