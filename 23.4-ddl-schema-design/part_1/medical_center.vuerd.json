@@ -4,8 +4,8 @@
     "width": 2000,
     "height": 2000,
     "scrollTop": 0,
-    "scrollLeft": -1.3888888336994052,
-    "zoomLevel": 1,
+    "scrollLeft": 0,
+    "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -72,9 +72,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 136.1105,
-          "top": 124.3052,
-          "zIndex": 169,
+          "left": 662.7777,
+          "top": 235.4152,
+          "zIndex": 140,
           "widthName": 70.64990234375,
           "widthComment": 60
         },
@@ -134,9 +134,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 134.0275,
-          "top": 393.0537,
-          "zIndex": 194,
+          "left": 135.1386,
+          "top": 351.943,
+          "zIndex": 136,
           "widthName": 60,
           "widthComment": 60
         },
@@ -171,9 +171,9 @@
             "id": "79a19fb1-d08a-4ed3-9ada-b3cd5b7377a7"
           },
           {
-            "name": "doctorId",
+            "name": "name",
             "comment": "",
-            "dataType": "",
+            "dataType": "int",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -196,9 +196,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 638.1943,
-          "top": 244.4442,
-          "zIndex": 200,
+          "left": 134.5001,
+          "top": 867.8344,
+          "zIndex": 138,
           "widthName": 60,
           "widthComment": 60
         },
@@ -206,7 +206,69 @@
         "id": "75981813-eeb5-461f-8504-c79bb79731ec"
       },
       {
-        "name": "doctor_patient",
+        "name": "diagnosis",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "int",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "d205d905-9e21-4750-9299-de0101bd17d3"
+          },
+          {
+            "name": "visitId",
+            "comment": "",
+            "dataType": "integer",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "9ec4b2f4-328e-4b0a-af68-59aff983cfa2"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 772.3889,
+          "top": 810.25,
+          "zIndex": 126,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "332d8398-2c79-4a44-bfe6-101485cc4a3c"
+      },
+      {
+        "name": "visits",
         "comment": "",
         "columns": [
           {
@@ -280,15 +342,77 @@
           }
         ],
         "ui": {
-          "active": true,
-          "left": 726.3887,
-          "top": 472.916,
-          "zIndex": 209,
-          "widthName": 84.392578125,
+          "active": false,
+          "left": 135.2775,
+          "top": 597.9166,
+          "zIndex": 137,
+          "widthName": 60,
           "widthComment": 60
         },
         "visible": true,
         "id": "2f4b582f-a2db-48ff-a8d6-8a2d3bec1c93"
+      },
+      {
+        "name": "disease",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "int",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "712d522d-0350-4401-976d-d7ff857f7957"
+          },
+          {
+            "name": "diagnosisId",
+            "comment": "",
+            "dataType": "int",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 67.76806640625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "582a8d09-8526-473a-8110-5fe1bba92b8a"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 766.4606,
+          "top": 435.9643,
+          "zIndex": 135,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "091f2079-c5d3-4945-9cfd-f1bd1f130da9"
       }
     ],
     "indexes": []
@@ -300,25 +424,25 @@
     "relationships": [
       {
         "identification": false,
-        "relationshipType": "OneN",
+        "relationshipType": "ZeroN",
         "startRelationshipType": "Dash",
         "start": {
           "tableId": "b93f80a4-6f45-4ad9-9171-681119f6c465",
           "columnIds": [
             "432b5c33-b5c5-41e7-993f-2467639de8d5"
           ],
-          "x": 333.1105,
-          "y": 213.8052,
-          "direction": "bottom"
+          "x": 662.7777,
+          "y": 280.1652,
+          "direction": "left"
         },
         "end": {
           "tableId": "f23041ba-cba5-4a3a-98f9-ac4a4d75c19f",
           "columnIds": [
             "43e041ae-c44b-48d9-a82f-a1d541294b18"
           ],
-          "x": 331.02750000000003,
-          "y": 393.0537,
-          "direction": "top"
+          "x": 529.1386,
+          "y": 406.943,
+          "direction": "right"
         },
         "constraintName": "fk_med_center_to_doctor",
         "visible": true,
@@ -326,25 +450,25 @@
       },
       {
         "identification": false,
-        "relationshipType": "OneOnly",
+        "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
           "tableId": "f23041ba-cba5-4a3a-98f9-ac4a4d75c19f",
           "columnIds": [
             "28c24429-071d-47ab-adef-f4c62a3d900e"
           ],
-          "x": 528.0275,
-          "y": 448.0537,
-          "direction": "right"
+          "x": 332.1386,
+          "y": 461.943,
+          "direction": "bottom"
         },
         "end": {
           "tableId": "2f4b582f-a2db-48ff-a8d6-8a2d3bec1c93",
           "columnIds": [
             "a23443c3-dbb3-4e32-9a59-ce5535636f18"
           ],
-          "x": 726.3887,
-          "y": 538.1659999999999,
-          "direction": "left"
+          "x": 332.27750000000003,
+          "y": 597.9166,
+          "direction": "top"
         },
         "constraintName": "fk_doctor_to_doctor_patient",
         "visible": true,
@@ -352,29 +476,81 @@
       },
       {
         "identification": false,
-        "relationshipType": "OneOnly",
+        "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
           "tableId": "75981813-eeb5-461f-8504-c79bb79731ec",
           "columnIds": [
             "79a19fb1-d08a-4ed3-9ada-b3cd5b7377a7"
           ],
-          "x": 835.1943,
-          "y": 354.4442,
-          "direction": "bottom"
+          "x": 331.5001,
+          "y": 867.8344,
+          "direction": "top"
         },
         "end": {
           "tableId": "2f4b582f-a2db-48ff-a8d6-8a2d3bec1c93",
           "columnIds": [
             "0682f46a-d525-4e23-afd0-300a1e02de7f"
           ],
-          "x": 923.3887,
-          "y": 472.916,
-          "direction": "top"
+          "x": 332.27750000000003,
+          "y": 728.4166,
+          "direction": "bottom"
         },
         "constraintName": "fk_patient_to_doctor_patient",
         "visible": true,
         "id": "5bc47dd2-f4a5-498a-9218-62118fbb57ac"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneOnly",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "2f4b582f-a2db-48ff-a8d6-8a2d3bec1c93",
+          "columnIds": [
+            "03c6a16e-86cd-49c5-9d79-61a413fca0a2"
+          ],
+          "x": 529.2775,
+          "y": 663.1666,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "332d8398-2c79-4a44-bfe6-101485cc4a3c",
+          "columnIds": [
+            "9ec4b2f4-328e-4b0a-af68-59aff983cfa2"
+          ],
+          "x": 772.3889,
+          "y": 865.25,
+          "direction": "left"
+        },
+        "constraintName": "fk_visits_to_diagnosis",
+        "visible": true,
+        "id": "0a338fa7-5104-4034-a43d-6f6c114b008d"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "332d8398-2c79-4a44-bfe6-101485cc4a3c",
+          "columnIds": [
+            "d205d905-9e21-4750-9299-de0101bd17d3"
+          ],
+          "x": 969.3889,
+          "y": 810.25,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "091f2079-c5d3-4945-9cfd-f1bd1f130da9",
+          "columnIds": [
+            "582a8d09-8526-473a-8110-5fe1bba92b8a"
+          ],
+          "x": 967.344633203125,
+          "y": 545.9643,
+          "direction": "bottom"
+        },
+        "constraintName": "fk_diagnosis_to_disease",
+        "visible": true,
+        "id": "a92bd3c9-0923-4757-b0e4-335f39090b33"
       }
     ]
   }
