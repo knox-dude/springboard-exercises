@@ -1,0 +1,588 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -254.16665656699115,
+    "scrollLeft": -302.7777657464702,
+    "zoomLevel": 0.8,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": true,
+      "columnPrimaryKey": true,
+      "columnUnique": true,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "PostgreSQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "tickets",
+        "comment": "",
+        "columns": [
+          {
+            "id": "52c5ac10-2971-4be4-9956-10902a928e7f",
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "10431cf8-2677-434e-ad52-ce6c49766d08",
+            "name": "seat",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "name": "passenger_id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 80.05712890625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "789b3e76-68ea-45db-b497-261e6f082a88"
+          },
+          {
+            "name": "flight_id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "c4bce367-c714-43b9-9057-dbfa14beeb0e"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 296.874,
+          "top": 732.4682,
+          "zIndex": 137,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "1c58c6c4-a484-4e04-aab5-2c9a98ca5ef5"
+      },
+      {
+        "name": "passenger",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "70cdc9b8-2807-41dd-bddc-86be8a650728"
+          },
+          {
+            "name": "first_name",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 62.68994140625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "055de1bc-bced-41e9-a0bd-7ec04fc1eeee"
+          },
+          {
+            "name": "last_name",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 61.97900390625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "af7cc14f-adde-4221-a6db-05bbf9cfd5ff"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 307.116,
+          "top": 411.805,
+          "zIndex": 109,
+          "widthName": 62.708984375,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "5ef87c47-42fa-4f37-b2af-c7eb410eb3d8"
+      },
+      {
+        "name": "airline",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "91a8f7d5-7c1a-462e-bed1-14c7e51180a0"
+          },
+          {
+            "name": "airline_name",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 76.4326171875,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "de707c9f-c42c-4b68-af1c-20a0de2eced3"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 690.4507,
+          "top": 218.2282,
+          "zIndex": 114,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "5a9c95de-e95f-44bd-bb0e-8ddb23c3a30a"
+      },
+      {
+        "name": "flight",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5427f01d-5e55-47f6-805c-718431cb8630"
+          },
+          {
+            "name": "airline_id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f1b2dae8-e880-4eb0-90e8-023c9e8c85ea"
+          },
+          {
+            "name": "departure",
+            "comment": "",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 76.87060546875,
+              "widthDefault": 60
+            },
+            "id": "6cf15ebb-4477-498e-ab98-9ad323a22ec7"
+          },
+          {
+            "name": "arrival",
+            "comment": "",
+            "dataType": "TIMESTAMP",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 76.87060546875,
+              "widthDefault": 60
+            },
+            "id": "fb27806f-0b8b-455e-9bd2-a122dba89a60"
+          },
+          {
+            "name": "to_city",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "52dba436-aa3d-470a-b1af-f4bf4fb161ea"
+          },
+          {
+            "name": "to_country",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 62.70263671875,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1f93d241-73a0-46d2-a529-f68574d2c3d8"
+          },
+          {
+            "name": "from_city",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "9d6a9079-7a98-4c90-a4db-a49926b47b82"
+          },
+          {
+            "name": "from_country",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 77.86083984375,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e2a57552-1ccf-4d75-97a6-40e0b8ff8d64"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1024.6528,
+          "top": 391.8396,
+          "zIndex": 138,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "0dcf2a9b-864f-450d-a9ed-541ecfc6e166"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "5ef87c47-42fa-4f37-b2af-c7eb410eb3d8",
+          "columnIds": [
+            "70cdc9b8-2807-41dd-bddc-86be8a650728"
+          ],
+          "x": 505.460970703125,
+          "y": 542.3050000000001,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "1c58c6c4-a484-4e04-aab5-2c9a98ca5ef5",
+          "columnIds": [
+            "789b3e76-68ea-45db-b497-261e6f082a88"
+          ],
+          "x": 503.902564453125,
+          "y": 732.4682,
+          "direction": "top"
+        },
+        "constraintName": "fk_passenger_to_tickets",
+        "visible": true,
+        "id": "b1216356-92c0-4a85-a9e3-d00be4ed6d57"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "0dcf2a9b-864f-450d-a9ed-541ecfc6e166",
+          "columnIds": [
+            "5427f01d-5e55-47f6-805c-718431cb8630"
+          ],
+          "x": 1024.6528,
+          "y": 508.3396,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "1c58c6c4-a484-4e04-aab5-2c9a98ca5ef5",
+          "columnIds": [
+            "c4bce367-c714-43b9-9057-dbfa14beeb0e"
+          ],
+          "x": 710.93112890625,
+          "y": 807.9682,
+          "direction": "right"
+        },
+        "constraintName": "fk_flight_to_tickets",
+        "visible": true,
+        "id": "772f1e35-9094-4747-bc03-c6640912f71c"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "5a9c95de-e95f-44bd-bb0e-8ddb23c3a30a",
+          "columnIds": [
+            "91a8f7d5-7c1a-462e-bed1-14c7e51180a0"
+          ],
+          "x": 1100.8833171874999,
+          "y": 273.2282,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "0dcf2a9b-864f-450d-a9ed-541ecfc6e166",
+          "columnIds": [
+            "f1b2dae8-e880-4eb0-90e8-023c9e8c85ea"
+          ],
+          "x": 1239.01852265625,
+          "y": 391.8396,
+          "direction": "top"
+        },
+        "constraintName": "fk_airline_to_flight",
+        "visible": true,
+        "id": "0bbdced8-5f76-438e-8c31-6992500b0aeb"
+      }
+    ]
+  }
+}

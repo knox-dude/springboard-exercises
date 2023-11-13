@@ -1,0 +1,473 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -242.36110148054573,
+    "scrollLeft": -475.70833349890177,
+    "zoomLevel": 0.9,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": true,
+      "columnPrimaryKey": true,
+      "columnUnique": true,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "PostgreSQL",
+    "databaseName": "",
+    "canvasType": "@vuerd/builtin-sql-ddl",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "planet",
+        "comment": "",
+        "columns": [
+          {
+            "id": "8cb6c0a1-f731-4248-9baa-9dd67dcb0870",
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "270add05-250c-4b95-a95a-e6c8add94276",
+            "name": "name",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "19ee97f0-a799-489c-863c-fae31b977027",
+            "name": "orbital_period_in_years",
+            "comment": "",
+            "dataType": "FLOAT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 137.1416015625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
+          },
+          {
+            "name": "star_id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "47a3309c-000d-4d37-920b-d0b8e3a33c45"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 827.0071,
+          "top": 899.4589,
+          "zIndex": 64,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "7ee71fc2-5aab-4c84-9667-a415abf8324a"
+      },
+      {
+        "name": "galaxy",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6c0c3970-711b-44f3-850f-381f25799d17"
+          },
+          {
+            "name": "galaxy_name",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 79.3271484375,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2b310808-5bb0-4db3-9d18-9e517b3d80e0"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 852.3134,
+          "top": 300.3839,
+          "zIndex": 62,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "e642781c-8f27-4797-8525-c123b2f3fe6a"
+      },
+      {
+        "name": "moon",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1bc32369-479c-4802-a9e4-c8f1dd95f294"
+          },
+          {
+            "name": "moon_name",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 74.26806640625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "c3279e68-ee14-41c7-a201-75333844201a"
+          },
+          {
+            "name": "planet_id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fdad8a08-6426-48a3-a230-f42d43b15ea3"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 862.8104,
+          "top": 1235.1066,
+          "zIndex": 65,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "e42c0e99-d0a2-40db-9682-892012966718"
+      },
+      {
+        "name": "star",
+        "comment": "",
+        "columns": [
+          {
+            "name": "id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "15b9d731-88e1-4a37-9dda-ddb0e22c52a2"
+          },
+          {
+            "name": "star_name",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 63.419921875,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "11189705-c8ee-46ea-a071-e4121184ee3d"
+          },
+          {
+            "name": "galaxy_id",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "beae0266-4b6b-431e-b4ce-9340fc8bdb99"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 862.4984,
+          "top": 563.6565,
+          "zIndex": 63,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "4570441a-b9a5-401f-8957-854dd31791e2"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "7ee71fc2-5aab-4c84-9667-a415abf8324a",
+          "columnIds": [
+            "8cb6c0a1-f731-4248-9baa-9dd67dcb0870"
+          ],
+          "x": 1062.57790078125,
+          "y": 1050.4589,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "e42c0e99-d0a2-40db-9682-892012966718",
+          "columnIds": [
+            "fdad8a08-6426-48a3-a230-f42d43b15ea3"
+          ],
+          "x": 1066.9444332031248,
+          "y": 1235.1066,
+          "direction": "top"
+        },
+        "constraintName": "fk_planet_to_moon",
+        "visible": true,
+        "id": "cfe3af13-8c61-4c9c-b633-10f090515a63"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "e642781c-8f27-4797-8525-c123b2f3fe6a",
+          "columnIds": [
+            "6c0c3970-711b-44f3-850f-381f25799d17"
+          ],
+          "x": 1058.97697421875,
+          "y": 410.3839,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "4570441a-b9a5-401f-8957-854dd31791e2",
+          "columnIds": [
+            "beae0266-4b6b-431e-b4ce-9340fc8bdb99"
+          ],
+          "x": 1061.2083609375,
+          "y": 563.6565,
+          "direction": "top"
+        },
+        "constraintName": "fk_galaxy_to_star",
+        "visible": true,
+        "id": "6345dd41-5f23-4452-95e1-007dd88f942b"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "4570441a-b9a5-401f-8957-854dd31791e2",
+          "columnIds": [
+            "15b9d731-88e1-4a37-9dda-ddb0e22c52a2"
+          ],
+          "x": 1061.2083609375,
+          "y": 694.1565,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "7ee71fc2-5aab-4c84-9667-a415abf8324a",
+          "columnIds": [
+            "47a3309c-000d-4d37-920b-d0b8e3a33c45"
+          ],
+          "x": 1062.57790078125,
+          "y": 899.4589,
+          "direction": "top"
+        },
+        "constraintName": "fk_star_to_planet",
+        "visible": true,
+        "id": "39dc2cc1-69e9-469a-8055-307164216405"
+      }
+    ]
+  }
+}
