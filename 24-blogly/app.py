@@ -15,6 +15,10 @@ def home_page():
   """Redirects to list of users"""
   return redirect("/users")
 
+@app.route("/users/new")
+def show_add_user_page():
+  return render_template("add_user.html")
+
 @app.route("/users/new", methods=["POST"])
 def add_user():
   """Add user and redirect to list."""
@@ -22,7 +26,8 @@ def add_user():
   first_name = request.form['first_name']
   last_name = request.form['last_name']
   image_url = request.form['image_url']
-
+  if image_url == "":
+    image_url="icon.png"
   user = User(first_name=first_name, last_name=last_name, image_url=image_url)
   db.session.add(user)
   db.session.commit()

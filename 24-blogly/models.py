@@ -25,4 +25,3 @@ class User(db.Model):
                         nullable=False,
                         default="icon.png")
   
-  
