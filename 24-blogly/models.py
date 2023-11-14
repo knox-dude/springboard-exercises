@@ -23,5 +23,5 @@ class User(db.Model):
                         nullable=False)
   image_url = db.Column(db.Text,
                         nullable=False,
-                        default="icon.png")
+                        default="https://static.thenounproject.com/png/574704-200.png")
   
