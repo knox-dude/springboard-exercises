@@ -4,7 +4,7 @@
 
 {% block content%}
 
-<h1>{{user.first_name}} {{user.last_name}}</h1>
+<h2>{{user.first_name}} {{user.last_name}}</h2>
 
 <img src="{{user.image_url}}" alt="Image of user">
 
@@ -15,5 +15,14 @@
 <form action="/users/{{user.id}}/delete" method="post">
   <button style="background-color: red; color: white;">Delete</button>
 </form>
+
+<span></span>
+
+<h2>Posts</h2>
+<ul>
+  {% for post in posts %}
+    <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+  {% endfor %}
+</ul>
 
 {% endblock %}
