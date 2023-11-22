@@ -25,7 +25,7 @@ class User(db.Model):
   image_url = db.Column(db.Text,
                         nullable=False,
                         default="https://static.thenounproject.com/png/574704-200.png")
-  posts = db.relationship('Post', backref=db.backref('user', uselist=False))
+  posts = db.relationship('Post', cascade='all,delete-orphan', backref='user')
 
   def __repr__(self):
     return f"<User {self.id}: {self.first_name} {self.last_name}>"

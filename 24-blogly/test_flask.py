@@ -1,6 +1,10 @@
+import os
+os.environ["TESTING"] = "TRUE"
+
 from unittest import TestCase
 from app import app
-from models import db, User, Post
+from models import db, User, Post, connect_db
+
 
 # Use test database and don't clutter tests with SQL
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly_test'
@@ -8,6 +12,9 @@ app.config['SQLALCHEMY_ECHO'] = False
 
 # Make Flask errors be real errors, rather than HTML pages with error info
 app.config['TESTING'] = True
+
+connect_db(app)
+
 with app.app_context():
     db.drop_all()
     db.create_all()
@@ -17,7 +24,7 @@ class UserViewsTestCase(TestCase):
 
     def setUp(self):
         with app.app_context():
-            User.query.delete()
+            db.create_all()
 
             user = User(first_name="TestUser", last_name="Smith")
             user2 = User(first_name="UserToDelete", last_name="Hernandez")
@@ -34,6 +41,7 @@ class UserViewsTestCase(TestCase):
         """Clean up any fouled transaction."""
         with app.app_context():
             db.session.rollback()
+            db.drop_all()
 
     def test_list_users(self):
         """Testing all users list page"""
@@ -79,61 +87,65 @@ class PostViewsTestCase(TestCase):
 
     def setUp(self):
         with app.app_context():
-            Post.query.delete()
+            db.create_all()
 
             user = User(first_name="TestUser", last_name="Smith")
             user2 = User(first_name="UserToDelete", last_name="Hernandez")
+
             db.session.add(user)
             db.session.add(user2)
             db.session.commit()
-
-            self.user_id, self.user_id2 = user.id, user2.id
-            self.user, self.user2 = user, user2
-
+            self.user_id, self.user2_id = user.id, user2.id
+            self.user_first_name, self.user_last_name = user.first_name, user.last_name
+        
             post = Post(title="TestPost1",
                         content="Here's the content for the test post.",
-                        user_id=User.query.filter_by(first_name='TestUser').first().id)
+                        user_id=self.user_id)
             post2 = Post(title="PostTodelete",
-                         content="This post gon' die.",
-                         user_id=User.query.filter_by(first_name='UserToDelete').first().id)
+                        content="This post gon' die.",
+                        user_id=self.user2_id)
+
             db.session.add(post)
             db.session.add(post2)
             db.session.commit()
 
-            self.test_post, self.test_post2 = post, post2
+            self.post_id, self.post2_id = post.id, post2.id
+            self.post_title = post.title
 
     def tearDown(self):
         """Clean up any fouled transaction."""
         with app.app_context():
             db.session.rollback()
+            db.drop_all()
+
 
     def test_user_post_detail(self):
         """Testing individual user page for posts"""
         with app.test_client() as client:
-            resp = client.get(f"/user/{self.user.id}")
+            resp = client.get(f"/users/{self.user_id}")
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
             self.assertIn('<h2>Posts</h2>', html)
-            self.assertIn(f'TestPost1</a>')
+            self.assertIn(f'{self.post_title}</a>', html)
 
     def test_show_post(self):
         """Tests a single user's info page"""
         with app.test_client() as client:
-            resp = client.get(f"posts/{self.post.id}")
+            resp = client.get(f"posts/{self.post_id}")
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
             self.assertIn('<h2>TestPost1</h2>', html)
-            self.assertIn(self.post.user.first_name, html)
-            self.assertIn(self.post.user.last_name, html)
+            self.assertIn(self.user_first_name, html)
+            self.assertIn(self.user_last_name, html)
             
 
     def test_add_post(self):
         """Testing adding a user"""
         with app.test_client() as client:
             d = {"title": "TestPost3", "content": "I am the third and final to be born."}
-            resp = client.post(f"/users/{self.user.id}/posts/new", data=d, follow_redirects=True)
+            resp = client.post(f"/users/{self.user_id}/posts/new", data=d, follow_redirects=True)
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
@@ -142,7 +154,7 @@ class PostViewsTestCase(TestCase):
     def test_delete_post(self):
         """Testing deleting a user"""
         with app.test_client() as client:
-            resp = client.post(f"/posts/{self.post2.id}/delete", follow_redirects=True)
+            resp = client.post(f"/posts/{self.post2_id}/delete", follow_redirects=True)
             html = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)

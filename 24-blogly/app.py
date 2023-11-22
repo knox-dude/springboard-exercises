@@ -2,13 +2,12 @@
 
 from flask import Flask, request, redirect, render_template
 from models import db, connect_db, User, Post
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
-
-connect_db(app)
 
 @app.route("/")
 def home_page():
@@ -145,3 +144,7 @@ def add_new_post_post(user_id):
   db.session.commit()
 
   return redirect(f"/users/{user_id}")
+
+
+if os.environ.get("TESTING") is None:
+  connect_db(app)
