@@ -43,8 +43,6 @@ class Post(db.Model):
                     nullable=False)
   content = db.Column(db.Text,
                       nullable=False)
-  created_at = db.Column(db.DateTime,
-                         default=datetime.utcnow())
   updated_at = db.Column(db.DateTime,
                          default=datetime.utcnow(),
                          onupdate=datetime.utcnow())
@@ -52,6 +50,15 @@ class Post(db.Model):
                       db.ForeignKey('users.id', ondelete="CASCADE"))
   def __repr__(self):
     return f"<Post {self.id}: {self.title} by user {self.user.first_name} {self.user.last_name}>"
+  
+  def getUpdatedAt(self):
+    return f"Updated {self.updated_at.strftime('%d %b %Y, %I:%M%p')}"
+  
+  def getTagList(self):
+    tag_list = []
+    for tag in self.tags:
+      tag_list.append(tag.name)
+    return tag_list
   
 class PostTag(db.Model):
   """PostTag - links Post and Tag"""

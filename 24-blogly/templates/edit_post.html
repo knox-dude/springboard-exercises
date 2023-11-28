@@ -8,6 +8,13 @@
 <form method="POST">
   <p>Title:     <input name="title", placeholder="Enter a title", value="{{post.title}}"></p>
   <p>Post Content:  <input name="content", placeholder="Enter content", value="{{post.content}}"></p>
+  {% for tag in tags %}
+    {% if tag.name in post.getTagList() %}
+      <p>{{tag.name}}<input type="checkbox" name="tag_{{tag.id}}" id="{{tag.id}}" checked></p>
+    {% else %}
+      <p>{{tag.name}}<input type="checkbox" name="tag_{{tag.id}}" id="{{tag.id}}"></p>
+    {% endif %}
+  {%endfor%}
   <button>Edit</button>
 </form>
 

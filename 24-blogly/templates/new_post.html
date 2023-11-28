@@ -8,6 +8,9 @@
 <form method="POST">
   <p>Title:     <input name="title", placeholder="Enter a title"></p>
   <p>Content:  <input name="content", placeholder="Post Content"></p>
+  {% for tag in tags %}
+    <p>{{tag.name}}<input type="checkbox" name="tag_{{tag.id}}" id="{{tag.id}}"></p>
+  {%endfor%}
   <button>Add</button>
 </form>
 <form action="/users/{{user.id}}">
