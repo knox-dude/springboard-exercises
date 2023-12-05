@@ -9,9 +9,11 @@
   {% for pet in pets %}
   <div class="pet_card">
     <img src="{{pet.photo_url}}" alt="Photo of {{pet.name}}">
-    {% if pet.available %}
-      <b>Available</b>
-    {% endif %}
+    <p><a href="/{{pet.id}}">{{pet.name}} the {{pet.species}}</a>
+      {% if pet.available %}
+        <b>is available</b>
+      {% endif %}
+    </p>
   </div>
   {% endfor %}
 </div>

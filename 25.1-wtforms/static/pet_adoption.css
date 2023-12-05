@@ -1,3 +1,41 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  padding-top: 60px; /* Adjust this value to match the height of your navbar */
+}
+
+.menu {
+  background-color: #333; /* Set the background color as desired */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it appears above other elements on the page */
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.menu li {
+  float: left;
+}
+
+.menu a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: #ddd; /* Set the background color for hover effect */
+  color: #333; /* Set the text color for hover effect */
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;

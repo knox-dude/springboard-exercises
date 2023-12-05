@@ -25,7 +25,8 @@ class Pet(db.Model):
 
   notes = db.Column(db.Text)
 
-  available = db.Column(db.Boolean)
+  available = db.Column(db.Boolean,
+                        default=False)
 
   photo_url = db.Column(db.Text,
                         default="https://static.thenounproject.com/png/574704-200.png")
