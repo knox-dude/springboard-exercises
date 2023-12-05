@@ -82,14 +82,14 @@ def edit_user(user_id):
 def delete_user(user_id):
   """Deletes a user."""
 
-########################### POSTS Section ###########################
-
   user = User.query.get(user_id)
   if user == None:
     return redirect("/users")
   User.query.filter_by(id=user_id).delete()
   db.session.commit()
   return redirect("/users")
+
+########################### POSTS Section ###########################
 
 @app.route("/posts/<int:post_id>")
 def show_post(post_id):

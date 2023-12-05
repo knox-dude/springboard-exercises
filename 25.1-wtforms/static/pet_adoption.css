@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust as needed */
+}
+
+.pet_card {
+  width: 23%; /* Adjust as needed to leave some space between cards */
+  margin-bottom: 20px; /* Adjust as needed to leave some space between rows */
+}
+
+.pet_card img {
+  width: 100%;
+  height: auto;
+}
