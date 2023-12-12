@@ -1,8 +1,8 @@
 """User Authentication application."""
 
-from flask import Flask, request, redirect, render_template, flash
+from flask import Flask, redirect, render_template, flash, session
 from models import db, connect_db, User
-from forms import UserForm
+from forms import RegisterForm, LoginForm
 from secret import SECRET_KEY
 import os
 
@@ -19,11 +19,19 @@ def home_page():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-  form = UserForm()
+  form = RegisterForm()
   if form.validate_on_submit():
     username = form.username.data
     password = form.password.data
     new_user = User.register(username, password)
+
+    email = form.email.data
+    first_name = form.first_name.data
+    last_name = form.last_name.data
+
+    new_user.first_name = first_name
+    new_user.last_name = last_name
+    new_user.email = email
 
     db.session.add(new_user)
     db.session.commit()
@@ -34,22 +42,29 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-  form = UserForm()
+  form = LoginForm()
   if form.validate_on_submit():
     username = form.username.data
     password = form.password.data
 
     user = User.authenticate(username, password)
     if user:
+      flash("Welcome back!")
+      session['username'] = user.username
       return redirect("/secret")
     else:
       form.username.errors = ['Invalid username/password.']
 
   return render_template("login.html", form=form)
 
-@app.route("/secret")
-def secret_page():
+@app.route("/users/<string:username>")
+def get_user(username):
+  if "username" not in session:
+    flash("Please login first!")
+    return redirect("/login")
+  # if session["username"]
   flash("You made it!")
+  User = User.query.get_or_404()
   return redirect("base.html")
 
 if os.environ.get("TESTING") is None:

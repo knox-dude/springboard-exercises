@@ -29,6 +29,9 @@ class User(db.Model):
 
   last_name = db.Column(db.String(30), nullable=False)
 
+  def get_full_name(self):
+    return f"{self.first_name} {self.last_name}"
+
   def __repr__(self):
     return f"User {self.username}"
   
