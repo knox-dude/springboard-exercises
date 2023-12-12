@@ -3,3 +3,5 @@ flask-sqlalchemy
 ipython
 psycopg2-binary
 sqlalchemy
+flask-bcrypt
+Flask-WTF
