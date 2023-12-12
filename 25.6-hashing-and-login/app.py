@@ -35,8 +35,9 @@ def register():
 
     db.session.add(new_user)
     db.session.commit()
+    session["username"] = new_user.username
     flash("Welcome! Successfully created your account!")
-    return redirect("/secret")
+    return redirect(f"/user/{session['username']}")
 
   return render_template("register.html", form=form)
 
@@ -51,21 +52,27 @@ def login():
     if user:
       flash("Welcome back!")
       session['username'] = user.username
-      return redirect("/secret")
+      return redirect(f"/users/{user.username}")
     else:
       form.username.errors = ['Invalid username/password.']
 
   return render_template("login.html", form=form)
+
+@app.route("/logout")
+def logout_user():
+  session.pop('username')
+  flash("Goodbye!", "info")
+  return redirect('/')
 
 @app.route("/users/<string:username>")
 def get_user(username):
   if "username" not in session:
     flash("Please login first!")
     return redirect("/login")
-  # if session["username"]
-  flash("You made it!")
-  User = User.query.get_or_404()
-  return redirect("base.html")
+  if session["username"] != username:
+    redirect(f"/users/{session['username']}")
+  user = User.query.get_or_404(session["username"])
+  return render_template("user.html", user=user)
 
 if os.environ.get("TESTING") is None:
   connect_db(app)
