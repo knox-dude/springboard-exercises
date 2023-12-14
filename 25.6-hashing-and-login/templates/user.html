@@ -2,16 +2,70 @@
 
 {% block content %}
 
-<h1 class="display-2">User Info</h1>
+<div class="row">
+    <div class="col-md-6">
+        <h1>User Info</h1>
+    </div>
+    <div class="col-md-6 text-md-end">
+        <form action="/users/{{ user.username }}/delete" method="post">
+            <button class="btn btn-danger">Delete User</button>
+        </form>
+    </div>
+</div>
+<br>
 <dl class="row">
-    <dt class="col-sm-3">Username</dt>
-    <dd class="col-sm-9">{{user.username}}</dd>
+    <dt class="col-md-3">Username</dt>
+    <dd class="col-md-9">{{ user.username }}</dd>
 
-    <dt class="col-sm-3">Email</dt>
-    <dd class="col-sm-9">{{user.email}}</dd>
+    <dt class="col-md-3">Email</dt>
+    <dd class="col-md-9">{{ user.email }}</dd>
 
-    <dt class="col-sm-3">Name</dt>
-    <dd class="col-sm-9">{{user.get_full_name()}}</dd>
+    <dt class="col-md-3">Name</dt>
+    <dd class="col-md-9">{{ user.get_full_name() }}</dd>
 </dl>
+<br>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Your Feedback</h2>
+    </div>
+    <div class="col-md-6 text-md-end">
+        <form action="/users/{{user.username}}/feedback/add" method="get">
+            <button class="btn btn-primary">Add Feedback</button>
+        </form>
+    </div>
+</div>
+
+<div class="col-sm-10 col-12">
+    <ul>
+        {% for feedback in user.feedback %}
+            <li>
+                <div class="column">
+                    <h5>{{ feedback.title }}</h5>
+                    <p>{{ feedback.content }}</p>
+                </div>
+            </li>
+
+            <form>
+                <button class="btn btn-primary"
+                        formmethod="get"
+                        formaction="/feedback/{{ feedback.id }}/update">
+                    Edit
+                </button>
+                <button class="btn btn-danger"
+                        formmethod="post"
+                        formaction="/feedback/{{ feedback.id }}/delete">
+                    Delete
+                </button>
+            </form>
+            <br>
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+
 
 {% endblock %}

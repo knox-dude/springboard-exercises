@@ -2,7 +2,7 @@
 
 from flask_sqlalchemy import SQLAlchemy
 # from datetime import datetime
-# from sqlalchemy.orm import backref
+from sqlalchemy.orm import backref
 from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt()
@@ -20,14 +20,12 @@ class User(db.Model):
   __tablename__ = "users"
 
   username = db.Column(db.String(20), primary_key=True)
-  
   password = db.Column(db.Text, nullable=False)
-
   email = db.Column(db.String(50), nullable=False, unique=True)
-
   first_name = db.Column(db.String(30), nullable=False)
-
   last_name = db.Column(db.String(30), nullable=False)
+
+  feedback = db.relationship("Feedback", backref="user", cascade="all,delete")
 
   def get_full_name(self):
     return f"{self.first_name} {self.last_name}"
@@ -61,3 +59,15 @@ class User(db.Model):
     else:
       return False
   
+class Feedback(db.Model):
+  """Feedback model."""
+
+  __tablename__ = "feedback"
+
+  id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+  title = db.Column(db.String(100), nullable=False)
+  content = db.Column(db.Text, nullable=False)
+  username = db.Column(db.String(20), db.ForeignKey('users.username', ondelete="CASCADE"))
+
+  def __repr__(self):
+    return f"Feedback '{self.title}' from user {self.username}"
