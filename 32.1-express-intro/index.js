@@ -2,21 +2,7 @@ const express = require("express");
 
 const app = express();
 
-function checkEmpty(nums) {
-  if (nums.length === 0) {
-    return true;
-  }
-  return false;
-}
-
-function checkNumber(nums) {
-  for (let i = 0; i < nums.length; i++) {
-    if (isNaN(nums[i])) {
-      return {"isNum":false, "problem":nums[i]};
-    }
-  }
-  return {"isNum":true};
-}
+const {checkEmpty, checkNumber} = require("./helpers.js");
 
 app.get("/mean/:nums", (req, res) => {
   const nums = req.params.nums;
@@ -150,3 +136,4 @@ app.listen(3000, () => {
   console.log("Press Ctrl+C to stop");
 });
 
+module.exports = {checkEmpty, checkNumber}
