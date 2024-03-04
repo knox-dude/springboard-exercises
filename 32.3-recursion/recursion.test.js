@@ -115,6 +115,7 @@ describe("binarySearch", function () {
     expect(binarySearch([1, 2, 3, 4], 4)).toEqual(3);
     expect(binarySearch([1, 2], 1)).toEqual(0);
     expect(binarySearch([1, 2, 3, 4, 5, 6, 7], 6)).toEqual(5);
+    expect(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], 13)).toEqual(12);
   });
 
   it("should return -1 if the value is not found", function() {
