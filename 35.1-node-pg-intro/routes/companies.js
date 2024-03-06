@@ -19,13 +19,14 @@ router.get('/', async function(req, res, next) {
 /**
  * @description Get a single company from the database
  * @route GET /companies/:code
- * @returns {object} 200 - Single company
+ * @returns {object} 200 - Single company and its invoices
  */
 router.get('/:code', async function(req, res, next) {
   const { code } = req.params;
   try {
-    const results = await db.query('SELECT * FROM companies WHERE code = $1', [code]);
-    return res.json({ company: results.rows[0] });
+    const companyResults = await db.query('SELECT * FROM companies WHERE code = $1', [code]);
+    const invoiceResults = await db.query('SELECT * FROM invoices WHERE comp_code = $1', [code]);
+    return res.json({ company: companyResults.rows[0], invoices: invoiceResults.rows });
   } catch (error) {
     return next(error);
   }
