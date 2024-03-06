@@ -9,9 +9,9 @@ const ExpressError = require("./expressError")
 app.use(express.json());
 
 /** routes */
-const companyRoutes = require("./routes/companyRoutes");
+const companyRoutes = require("./routes/companies.js");
 app.use("/companies", companyRoutes);
-const invoiceRoutes = require("./routes/invoiceRoutes");
+const invoiceRoutes = require("./routes/invoices.js");
 app.use("/invoices", invoiceRoutes);
 
 /** 404 handler */
