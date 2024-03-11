@@ -50,7 +50,9 @@ describe('GET /companies/:code', () => {
     it('should return a single company', async () => {
         const res = await request(app).get(`/companies/${testCompany.code}`);
         expect(res.statusCode).toBe(200);
-        expect(res.body).toEqual({company: testCompany, invoices: [testInvoice]});
+        let combinedCompany = testCompany;
+        combinedCompany.invoices = [testInvoice];
+        expect(res.body).toEqual({company: testCompany});
     });
     it('should return 404 if company not found', async () => {
         const res = await request(app).get('/companies/NOTFOUND');
