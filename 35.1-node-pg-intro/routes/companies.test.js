@@ -73,7 +73,7 @@ describe('POST /companies', () => {
                 description: 'This is a test company'
             });
         expect(res.statusCode).toBe(201);
-        expect(res.body).toEqual({company: {code: 'TEST', name: 'Test Company', description: 'This is a test company'}});
+        expect(res.body).toEqual({company: {code: 'Test-Company', name: 'Test Company', description: 'This is a test company'}});
     });
 });
 

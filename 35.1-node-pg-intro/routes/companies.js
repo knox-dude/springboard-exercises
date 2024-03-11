@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
-const ExpressError = require("../expressError")
+const ExpressError = require("../expressError");
+const slugify = require('slugify');
 
 /**
  * @description Get all companies from the database
@@ -45,7 +46,8 @@ router.get('/:code', async function(req, res, next) {
  * @returns {object} 201 - Company created
  */
 router.post('/', async function(req, res, next) {
-  const { code, name, description } = req.body;
+  const { name, description } = req.body;
+  const code = slugify(name);
   try {
     const results = await db.query('INSERT INTO companies (code, name, description) VALUES ($1, $2, $3) RETURNING *', [code, name, description]);
     return res.status(201).json({ company: results.rows[0] });
