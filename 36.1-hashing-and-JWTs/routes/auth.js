@@ -1,12 +1,9 @@
 const express = require("express");
 const router = new express.Router();
-const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const ExpressError = require("../expressError");
-const db = require("../db");
-const { ensureLoggedIn, ensureCorrectUser } = require("../middleware/auth");
-const { SECRET_KEY, BCRYPT_WORK_FACTOR } = require("../config");
+const { SECRET_KEY } = require("../config");
 const User = require("../models/user");
 
 /** POST /login - login: {username, password} => {token}
@@ -22,12 +19,16 @@ router.post('/login', async function (req, res, next) {
     if (!username || !password) {
       throw new ExpressError("Missing required fields", 400);
     }
-    if (User.authenticate(username, password)) {
+    const authenticated = await User.authenticate(username, password);
+    if (authenticated) {
       //update last-login
       await User.updateLoginTimestamp(username);
       // return the resulting jwt
-      const token = jwt.sign({ username: username }, SECRET_KEY, { expiresIn: 3600 });
+      const token = jwt.sign({ username: username }, SECRET_KEY);
       return res.json({ token });
+    }
+    else {
+      throw new ExpressError("Invalid credentials", 400);
     }
   } catch (err) {
     return next(err);
@@ -49,13 +50,16 @@ router.post("/register", async function (req, res, next) {
       throw new ExpressError("Missing required fields", 400);
     }
     // register user
-    const user = await User.register(username, password, first_name, last_name, phone);
+    const user = await User.register({username, password, first_name, last_name, phone});
     // update last-login
     await User.updateLoginTimestamp(user.username);
     // return the resulting jwt
-    const token = jwt.sign({ username: user.username }, SECRET_KEY, { expiresIn: 3600 });
+    const token = jwt.sign({ username: user.username }, SECRET_KEY);
     return res.json({ token });
+
   } catch (err) {
     return next(err);
   }
 });
+
+module.exports = router;
