@@ -1,51 +1,43 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "properties": {
-      "book": {
-        "type": "object",
-        "properties": {
-          "amazon_url": {
-            "type": "string",
-            "format": "uri"
-          },
-          "author": {
-            "type": "string"
-          },
-          "isbn": {
-            "type": "string"
-          },
-          "language": {
-            "type": "string"
-          },
-          "pages": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "publisher": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "year": {
-            "type": "integer",
-            "maximum": 2024
-          }
-        },
-        "required": [
-          "amazon_url",
-          "author",
-          "isbn",
-          "language",
-          "pages",
-          "publisher",
-          "title",
-          "year"
-        ]
-      }
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "amazon_url": {
+      "type": "string",
+      "format": "uri"
     },
-    "required": [
-      "book"
-    ]
-  }
+    "author": {
+      "type": "string"
+    },
+    "isbn": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "pages": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "publisher": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer",
+      "maximum": 2024
+    }
+  },
+  "required": [
+    "amazon_url",
+    "author",
+    "isbn",
+    "language",
+    "pages",
+    "publisher",
+    "title",
+    "year"
+  ]
+}
