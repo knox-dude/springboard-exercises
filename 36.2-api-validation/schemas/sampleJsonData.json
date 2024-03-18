@@ -1,0 +1,12 @@
+{
+    "book": {
+        "amazon_url": "https://www.amazon.com/Art-Computer-Programming-ebook/dp/1441214800",
+        "author": "Some Author",
+        "isbn": "978-1-4412-1480-0",
+        "language": "English",
+        "pages": 400,
+        "publisher": "Addison-Wesley Professional",
+        "title": "The Art of Computer Programming",
+        "year": 1997
+    }
+}
