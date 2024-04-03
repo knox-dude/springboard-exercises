@@ -6,6 +6,9 @@
 # Secret keys
 *secret.py
 
+# Mac-specific files
+*.DS_Store
+
 # User-specific files
 *.rsuser
 *.suo
