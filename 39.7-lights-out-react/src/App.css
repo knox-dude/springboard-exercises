@@ -1,3 +1,21 @@
+body {
+  background-color: black;
+}
+
 .App {
   text-align: center;
+  background-color: black !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.AppTitle {
+  font-size: 50px;
+  color: white;
+}
+
+.AppSubtitle {
+  font-size: 20px;
+  color: white;
 }

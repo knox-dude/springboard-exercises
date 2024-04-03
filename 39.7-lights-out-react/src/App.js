@@ -1,4 +1,3 @@
-import React from "react";
 import Board from "./Board";
 import "./App.css";
 
@@ -6,9 +5,11 @@ import "./App.css";
 
 function App() {
   return (
-      <div className="App">
-        <Board />
-      </div>
+    <div className="App">
+      <h1 className="AppTitle">Lights Out Game</h1>
+      <h4 className="AppSubtitle">Make all squares gray!</h4>
+      <Board />
+    </div>
   );
 }
 
