@@ -1,7 +1,8 @@
+import BoxList from "./BoxList"
 function App() {
   return (
     <div className='App'>
-      /* put your component here */
+      <BoxList />
     </div>
   )
 }

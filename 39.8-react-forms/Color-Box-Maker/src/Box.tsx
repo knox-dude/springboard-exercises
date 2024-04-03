@@ -1,10 +1,21 @@
 
-
-function Box({width=0, height=0, backgroundColor="black"} : {width?: number, height?: number, backgroundColor?: string}) {
-    return (
-        <div style={{width: width, height: height, backgroundColor: backgroundColor}}></div>
-    )
+interface BoxProps {
+    width: number;
+    height: number;
+    backgroundColor: string;
 }
+
+const Box: React.FC<BoxProps> = ({ width, height, backgroundColor }) => {
+    return (
+        <div
+            style={{
+                width: `${width}px`,
+                height: `${height}px`,
+                backgroundColor,
+            }}
+        />
+    );
+};
 
 
 export default Box
