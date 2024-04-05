@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./Todo.css"
 
 function Todo({ task, id, remove }) {
 
@@ -7,14 +8,14 @@ function Todo({ task, id, remove }) {
   return (
     <div className="Todo">
       <p>{task}</p>
-      <button onClick={handleDelete}>X</button>
+      <button className="Todo-button" onClick={handleDelete}>X</button>
     </div>
   );
 }
 
 Todo.propTypes = {
   task: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   remove: PropTypes.func,
 };
 
