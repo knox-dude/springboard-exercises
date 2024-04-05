@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { BoxList } from "./BoxList";
+import BoxList from "./BoxList";
 
 describe("BoxList", () => {
     it("renders initial empty state", () => {
