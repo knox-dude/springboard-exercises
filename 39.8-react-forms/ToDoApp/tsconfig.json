@@ -24,7 +24,10 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    
+    //supress this one test warning for jest
+    "esModuleInterop": true,
   },
   "include": ["src", "./jest.setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
