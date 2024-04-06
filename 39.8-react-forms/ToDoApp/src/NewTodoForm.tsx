@@ -19,6 +19,7 @@ function NewTodoForm({ addTodo }: NewTodoFormProps) {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        placeholder='Enter todo...'
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
