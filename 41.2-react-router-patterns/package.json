@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start-fe": "react-scripts start",
-    "start-be": "json-server --watch db.json --delay 500 --port 5001"
+    "start-be": "json-server --watch db.json --port 5001"
   },
   "eslintConfig": {
     "extends": "react-app"
