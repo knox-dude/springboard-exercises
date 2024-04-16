@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./DogList.css"
 
 function DogList({ dogs }) {
   return (
@@ -7,7 +8,7 @@ function DogList({ dogs }) {
       <div className="row mt-4">
         <div className="col">
           <h2 className="text-center">
-            HELLO. WE HAVE DOGS. CLICK ON THEM FOR MORE INFO.
+            Dog Time
           </h2>
         </div>
       </div>
