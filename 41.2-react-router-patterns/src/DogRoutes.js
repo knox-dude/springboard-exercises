@@ -11,7 +11,7 @@ function DogRoutes({dogs}) {
       />
       <Route 
         path="/dogs/:name"
-        element={<DogDetail />}
+        element={<DogDetail dogs={dogs}/>}
       /> 
       <Route 
         path="/*"

@@ -8,7 +8,7 @@ function DogList({ dogs }) {
       <div className="row mt-4">
         <div className="col">
           <h2 className="text-center">
-            Dog Time
+            I copied/plaguarized this page from the solution
           </h2>
         </div>
       </div>

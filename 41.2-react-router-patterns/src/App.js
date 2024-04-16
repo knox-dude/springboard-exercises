@@ -1,5 +1,4 @@
 import { BrowserRouter } from "react-router-dom"
-import DogList from "./DogList"
 import Navbar from "./Navbar"
 import DogRoutes from "./DogRoutes"
 
