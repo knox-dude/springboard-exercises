@@ -1,3 +1,5 @@
+const twoArrayObject = require('./two-array-object')
+
 describe("twoArrayObject", function() {
   it("makes an object of keys and values", function() {
     expect(twoArrayObject(["a", "b", "c"], [1, 2, 3])).toEqual({
