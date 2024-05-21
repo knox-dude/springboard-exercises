@@ -1,3 +1,4 @@
+const countPairs = require("./count-pairs")
 describe("countPairs", function() {
   it("should return 0 if there are no pairs", function() {
     expect(countPairs([1, 2, 3, 4, 5], 10)).toBe(0);
