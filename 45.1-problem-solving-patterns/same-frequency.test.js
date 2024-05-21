@@ -1,3 +1,4 @@
+const sameFrequency = require('./same-frequency')
 describe("sameFrequency", function() {
   it("should return true if the frequencies are the same", function() {
     expect(sameFrequency(182, 281)).toBe(true);
