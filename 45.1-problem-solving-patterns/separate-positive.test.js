@@ -1,3 +1,5 @@
+const separatePositive = require("./separate-positive")
+
 describe("separatePositive", function() {
   it("does nothing to arrays of all positive numbers", function() {
     var arr = [1, 2, 3];
