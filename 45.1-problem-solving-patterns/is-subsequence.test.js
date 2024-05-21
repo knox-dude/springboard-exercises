@@ -1,3 +1,4 @@
+const isSubsequence = require("./is-subsequence")
 describe("isSubsequence", function() {
   it("should return true if the first string is a substring of the second", function() {
     expect(isSubsequence("hello", "hello world")).toBe(true);
